@@ -1,7 +1,1 @@
-python-telegram-bot
-beautifulsoup4
-requests
-aiohttp
-brotli
-fastapi
-uvicorn
+
