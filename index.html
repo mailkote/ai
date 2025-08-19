@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Киберпанк Рыбалка: Мутанты в Ночи</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Киберпанк Рыбалка</h1>
+            <p class="cyberpunk-text">Лови мутантов в радиоактивных водах Нейромантии</p>
+        </header>
+
+        <div class="stats">
+            <div class="stat-item">
+                <div>КРЕДИТЫ</div>
+                <div class="stat-value" id="credits">1000</div>
+            </div>
+            <div class="stat-item">
+                <div>УРОВЕНЬ</div>
+                <div class="stat-value" id="level">1</div>
+            </div>
+            <div class="stat-item">
+                <div>ОПЫТ</div>
+                <div class="stat-value" id="xp">0/100</div>
+            </div>
+            <div class="stat-item">
+                <div>ВРЕМЯ</div>
+                <div class="stat-value" id="time">23:47</div>
+            </div>
+        </div>
+
+        <div class="game-area">
+            <div class="fishing-area">
+                <h2>Зона Рыбалки</h2>
+                <div class="water">
+                    <div class="wave"></div>
+                    <div id="fish-container"></div>
+                </div>
+                <div class="fishing-controls">
+                    <button class="cast-btn" id="castButton">ЗАБРОСИТЬ УДОЧКУ</button>
+                </div>
+            </div>
+
+            <div class="inventory">
+                <h2>ИНВЕНТАРЬ</h2>
+                <div class="inventory-image-container">
+                    <img src="/images/backpack.png" alt="Инвентарь" class="inventory-image">
+                </div>
+                <div class="catches" id="inventory"></div>
+            </div>
+        </div>
+
+        <div class="message-area">
+            <div class="message cyberpunk-text">> Система инициализации завершена...</div>
+            <div class="message cyberpunk-text">> Добро пожаловать в Нейромантию, рыбак!</div>
+            <div class="message cyberpunk-text">> Радиоактивные воды полны мутантов...</div>
+            <div id="messages"></div>
+        </div>
+
+        <footer>
+            <p class="cyberpunk-text">Киберпанк Рыбалка v1.0 | Нейромантия 2087</p>
+        </footer>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
