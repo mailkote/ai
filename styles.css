@@ -1,0 +1,295 @@
+```css
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('../images/location1.png');
+    background-size: cover;
+    background-position: center;
+    color: #00ffcc;
+    font-family: 'Orbitron', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    background-attachment: fixed;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(0, 255, 204, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(255, 0, 255, 0.1) 0%, transparent 40%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+header {
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 2px solid #ff00ff;
+    margin-bottom: 30px;
+    position: relative;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+    margin-bottom: 10px;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    border: 1px solid #00ffcc;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    backdrop-filter: blur(5px);
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    color: #ff00ff;
+    font-weight: bold;
+}
+
+.game-area {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.fishing-area {
+    flex: 2;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #00ffcc;
+    border-radius: 15px;
+    padding: 20px;
+    position: relative;
+    min-height: 400px;
+    overflow: hidden;
+}
+
+.water {
+    background: linear-gradient(180deg, #001122, #003366);
+    height: 200px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+    background-image: url('https://placehold.co/800x200/001122/003366?text=Water+Surface');
+    background-size: 100% 100%;
+}
+
+.wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 20px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="%2300ffcc"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="%2300ffcc"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%2300ffcc"/></svg>');
+    animation: wave 12s linear infinite;
+}
+
+@keyframes wave {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.fish {
+    position: absolute;
+    width: 60px;
+    height: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: swim 3s infinite alternate;
+}
+
+.fish:hover {
+    transform: scale(1.2);
+    filter: brightness(1.5);
+}
+
+@keyframes swim {
+    0% { transform: translateX(0) translateY(0); }
+    100% { transform: translateX(100px) translateY(20px); }
+}
+
+.fish-svg {
+    width: 100%;
+    height: 100%;
+}
+
+.fishing-controls {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.cast-btn {
+    background: linear-gradient(45deg, #ff00ff, #00ffcc);
+    color: #000;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-family: 'Orbitron', sans-serif;
+    border-radius: 30px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.5);
+}
+
+.cast-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(255, 0, 255, 0.8);
+}
+
+.cast-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.inventory {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #ff00ff;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.inventory h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ff00ff;
+    text-shadow: 0 0 10px #ff00ff;
+}
+
+.inventory-image-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.inventory-image {
+    width: 150px;
+    height: auto;
+    filter: drop-shadow(0 0 10px rgba(0, 255, 204, 0.5));
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.catches {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.catch-item {
+    background: rgba(0, 255, 204, 0.1);
+    border: 1px solid #00ffcc;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.catch-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 255, 204, 0.3);
+}
+
+.catch-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.catch-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.catch-value {
+    color: #ff00ff;
+    font-size: 0.9rem;
+}
+
+.message-area {
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #00ffcc;
+    border-radius: 15px;
+    padding: 20px;
+    min-height: 100px;
+    font-family: 'Courier New', monospace;
+}
+
+.message {
+    margin-bottom: 10px;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.cyberpunk-text {
+    text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 15px #00ffcc;
+}
+
+.neon-border {
+    box-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    border-top: 2px solid #ff00ff;
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+@media (max-width: 768px) {
+    .game-area {
+        flex-direction: column;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+}
+```
